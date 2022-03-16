@@ -4,18 +4,18 @@ Materiale didattico per il Tutorato di Ingegneria del Software A.A. 2021/2022
 ## Installazione ambiente di sviluppo Java su Windows 10
 Scegliete una delle tre opzioni sottostanti, dipende da come preferite sviluppare
 
-#Eclipse IDE
+**Eclipse IDE**
   1. Scaricare l'ambiente di sviluppo Eclipse dal [sito ufficiale](https://www.eclipse.org/downloads/)
   2. Installare l'ambiente di sviluppo (l'installazione dovrebbe essere comprensiva di tutte le dipendenze)
 
-#VsCode
+**VsCode**
   1. Scaricare Visual Studio Code dal [sito ufficiale](https://code.visualstudio.com/)
   2. Installare vscode e avviare il programma
   3. Sulla barra di sinistra trovate l'icona delle "estensioni, cliccate su di essa
   4. Nella barra di ricerca cercate "Extension pack for java" e installatelo (vi installerà tutte le componenti principali per poter sviluppare in java)
   5. A questo punto potete tranquillamente sviluppare su vscode e compilare codice Java
 
-#Compilatore java da riga di comando
+**Compilatore java da riga di comando**
   1. Scaricare l'ultima versione della JDK [Java download](https://www.oracle.com/java/technologies/downloads/)
   2. Installare la JDK nel proprio computer
   3. Verificare che l'installazione sia andata a buon fine (controllare se la cartella C:\Program Files\java è presente, all'interno di essa dovrebbe esserci una sottocartella chiamata jdk)
