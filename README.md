@@ -15,7 +15,7 @@ Scegliete una delle tre opzioni sottostanti, dipende da come preferite sviluppar
   4. Nella barra di ricerca cercate "Extension pack for java" e installatelo (vi installerà tutte le componenti principali per poter sviluppare in java)
   5. A questo punto potete tranquillamente sviluppare su vscode e compilare codice Java
 
-**Compilatore java da riga di comando**
+**Compilatore java da riga di comando su Windows 10**
   1. Scaricare l'ultima versione della JDK [Java download](https://www.oracle.com/java/technologies/downloads/)
   2. Installare la JDK nel proprio computer
   3. Verificare che l'installazione sia andata a buon fine (controllare se la cartella C:\Program Files\java è presente, all'interno di essa dovrebbe esserci una sottocartella chiamata jdk)
