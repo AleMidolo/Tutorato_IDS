@@ -1,7 +1,7 @@
 ### Tutorato_IDS
 Materiale didattico per il Tutorato di Ingegneria del Software A.A. 2021/2022
 
-## Installazione ambiente di sviluppo Java su Windows 10
+## Installazione ambiente di sviluppo Java
 Scegliete una delle tre opzioni sottostanti, dipende da come preferite sviluppare
 
 **Eclipse IDE**
