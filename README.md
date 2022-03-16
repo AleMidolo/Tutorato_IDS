@@ -20,10 +20,10 @@ Scegliete una delle tre opzioni sottostanti, dipende da come preferite sviluppar
   2. Installare la JDK nel proprio computer
   3. Verificare che l'installazione sia andata a buon fine (controllare se la cartella C:\Program Files\java è presente, all'interno di essa dovrebbe esserci una sottocartella chiamata jdk)
   4. Aggiornare la variabile d'ambiente PATH (bisogna essere amministratori per poterlo fare):
-    - Aprire il pannello di controllo, andare su "Sistema e sicurrezza", quindi cliccare su "Sistema"
-    - Cliccare nel pannello di destra su "Impostazioni di sistema avanzate"
-    - Aprire il pannello "Avanzate" e cliccare su "Variabili d'ambiente.."
-    - Sotto la sezione "Variabili di sistema" cliccate su "Nuova"; il nome della variabile sarà "JAVA_HOME" (rispettate le maiuscole) e il valore della variabile sarà il percorso dove avete installato la vostra JDK (ad esempio nel mio computer il percorso è "C:\Program Files\Java\jdk-17.0.1")
-    - Sempre nella sezione "Variabili di sistema" selezionate la variabile "Path" (questa variabile può essere scritta anche PATH o path, è indifferente) e cliccate su modifica. All'interno della variabile path cliccate su nuovo ed inserite questo valore "%JAVA_HOME%\bin". Questo percorso indica la posizione del file .exe di java
-    - Salvate e chiudete il tutto. Conviene riavviare la macchina per rendere le modifiche valide
-    - Per verificare che l'installazione sia adndata a buon fine, aprire un prompt dei comandi (CMD) e scrivete "java -version" e "javac", questi comandi dovrebbero darvi delle informazioni riguardanti la vostra installazione di java
+     - Aprire il pannello di controllo, andare su "Sistema e sicurrezza", quindi cliccare su "Sistema"
+     - Cliccare nel pannello di destra su "Impostazioni di sistema avanzate"
+     - Aprire il pannello "Avanzate" e cliccare su "Variabili d'ambiente.."
+     - Sotto la sezione "Variabili di sistema" cliccate su "Nuova"; il nome della variabile sarà "JAVA_HOME" (rispettate le maiuscole) e il valore della variabile sarà il percorso dove avete installato la vostra JDK (ad esempio nel mio computer il percorso è "C:\Program Files\Java\jdk-17.0.1")
+     - Sempre nella sezione "Variabili di sistema" selezionate la variabile "Path" (questa variabile può essere scritta anche PATH o path, è indifferente) e cliccate su modifica. All'interno della variabile path cliccate su nuovo ed inserite questo valore "%JAVA_HOME%\bin". Questo percorso indica la posizione del file .exe di java
+     - Salvate e chiudete il tutto. Conviene riavviare la macchina per rendere le modifiche valide
+     - Per verificare che l'installazione sia adndata a buon fine, aprire un prompt dei comandi (CMD) e scrivete "java -version" e "javac", questi comandi dovrebbero darvi delle informazioni riguardanti la vostra installazione di java
