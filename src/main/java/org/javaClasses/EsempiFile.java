@@ -78,7 +78,7 @@ public class EsempiFile {
 			System.out.println("\n");
 		}
 		catch(IOException e) {
-			
+			e.printStackTrace();	
 		}
 	}
 }
