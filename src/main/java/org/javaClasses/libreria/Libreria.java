@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Libreria {
 
-	ArrayList<Scaffale> scaffali;
+	private ArrayList<Scaffale> scaffali;
 	
 	public Libreria(){
 		scaffali = new ArrayList<>();
@@ -15,8 +15,11 @@ public class Libreria {
 			System.out.println("La lista di scaffali passati è troppo grande, inizializzo una lista vuota");
 			this.scaffali = new ArrayList<>();
 		}
-		else
-			this.scaffali = scaffali;
+		else {
+			for(Scaffale s : scaffali) {
+				addScaffale(s);
+			}
+		}
 	}
 	
 	public ArrayList<Scaffale> getScaffali(){
@@ -24,10 +27,27 @@ public class Libreria {
 	}
 	
 	public void addScaffale(Scaffale scaffale) {
+		for(Scaffale s : scaffali) {
+			if(s.getGenere().equals(scaffale.getGenere())) {
+				System.out.println("Lo scaffale di questo genere è già presente");
+			}
+		}
 		if(scaffali.size() < 10)
 			scaffali.add(scaffale);
 		else
 			System.out.println("Libreria piena");
+	}
+	
+	public void addLibro(Book libro) {
+		for(Scaffale s : scaffali) {
+			if(libro.getGenere().equals(s.getGenere())) {
+				s.addLibro(libro);
+				return;
+			}
+		}
+		Scaffale nuovoScaffale = new Scaffale(libro.getGenere());
+		nuovoScaffale.addLibro(libro);
+		addScaffale(nuovoScaffale);
 	}
 	
 	public void rimuoviScaffale(String genere) {

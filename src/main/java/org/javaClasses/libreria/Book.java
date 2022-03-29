@@ -8,8 +8,9 @@ public class Book {
 	private Double prezzo;
 	private Integer disponibilità;
 	private String genere;
+	private String autore;
 	
-	public Book(String nome, Double prezzo, String genere){
+	public Book(String nome, Double prezzo, String genere, String autore){
 		this.nome = nome;
 		this.prezzo = prezzo;
 		this.genere = genere;
@@ -17,11 +18,12 @@ public class Book {
 		ID = generateID();
 	}
 	
-	public Book(String nome, Double prezzo, String genere, Integer disponibilità){
+	public Book(String nome, Double prezzo, String genere, Integer disponibilità, String autore){
 		this.nome = nome;
 		this.prezzo = prezzo;
 		this.genere = genere;
 		this.disponibilità = disponibilità;
+		this.autore = autore;
 		ID = generateID();
 	}
 	
@@ -44,6 +46,10 @@ public class Book {
 	
 	public Double getPrezzo() {
 		return prezzo;
+	}
+	
+	public String getAutore() {
+		return autore;
 	}
 	
 	public void setPrezzo(Double nuovoPrezzo) {
@@ -91,5 +97,14 @@ public class Book {
 	
 		Double nuovoPrezzo = prezzo - (prezzo/100*percentuale);
 		prezzo = nuovoPrezzo;
+	}
+	
+	public void stampaLibro() {
+		System.out.println("Nome : " + nome);
+		System.out.println("ID : " + ID);
+		System.out.println("Prezzo : " + prezzo);
+		System.out.println("Disponibilità : " + disponibilità);
+		System.out.println("Genere : " + genere);
+		System.out.println("Autore : " + autore);
 	}
 }
