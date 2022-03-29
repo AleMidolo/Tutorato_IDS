@@ -24,9 +24,12 @@ public class EsempiList {
 		books.add("La Divina Commedia");
 		books.add("Il Piccolo Principe");
 		books.add("Harry Potter");
+		books.add(2, "Geronimo Stilton");
+		
+		System.out.println(books);
 		
 		// l'accesso a un elemento della lista 
-		System.out.println("Il terzo libro della lista ï¿½: " + books.get(2) + "\n");
+		System.out.println("Il terzo libro della lista è: " + books.get(2) + "\n");
 		
 		// la modifica di un elemento della lista
 		books.set(2, "Il Decamerone");
@@ -66,9 +69,9 @@ public class EsempiList {
 		
 		
 		ArrayList<Book> libri = new ArrayList<>();
-		libri.add(new Book("Il Signore degli Anelli", 14.5, "Fantasy"));
-		libri.add(new Book("La Divina Commedia", 10.5, "Letteratura", 5));
-		libri.add(new Book("Guerra e Pace", 12.0, "Romanzo"));
+		libri.add(new Book("Il Signore degli Anelli", 14.5, "Fantasy", "J.R.R. Tolkien"));
+		libri.add(new Book("La Divina Commedia", 10.5, "Letteratura", 5, "D. Aligheri"));
+		libri.add(new Book("Guerra e Pace", 12.0, "Romanzo", "L. Tolstoj"));
 		
 		stampa(libri);
 		
