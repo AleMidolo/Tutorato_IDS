@@ -1,0 +1,87 @@
+' PlantUML: tool per la generazione di UML (.png) in modo testuale
+' supporta diversi diagrammi UML 
+' (es. diagramma delle classi, di sequenza...)
+' esempio file class_diagram.puml per generare UML a destra
+' download (jar): http://plantuml.com/download
+' documentazione: http://plantuml.com/class-diagram
+' estensione per VS Code (PlantUML): https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
+' (premi ALT-D per aprire la preview in VS Code)
+
+@startuml negozio
+
+' START STYLE
+skinparam {
+	'monochrome true
+	'shadowing false
+	'classBackgroundColor white
+	'noteBackgroundColor white
+	classAttributeIconSize 0
+	'linetype polyline
+	'linetype ortho
+}
+hide circle
+' END STYLE
+
+title Negozio
+
+interface Lavoratore << interface >>{
+	+ getStipendio(): Double
+	+ setStipendio(newStipendio: Double): void
+	+ getNome(): String
+	+ getCognome(): String
+	+ getDataDiNascita(): String
+}
+
+abstract class Manager << abstract >>{
+    - nome: String
+    - cognome: String
+    - dataDiNascita: String
+    - stipendio: Double
+    + Manager(n: String, c: String, d: String, s: Double)
+	+ getStipendio(): Double
+	+ setStipendio(newStipendio: Double): void
+	+ getNome(): String
+    +getCognome(): String
+    +getDataDiNascita(): String
+}
+
+class CapoArea {
+    - addetti: ArrayList<AddettoVendite>
+    - area: Area
+    + CapoArea(n: String, c: String, d: String, s: Double, area: Area)
+    + CapoArea(n: String, c: String, d: String, s: Double, area: Area, addetti: ArrayList<AddettoVendite>)
+    + getAddetti(): ArrayList<AddettoVendite>
+    + getArea(): Area
+    + aggiungiAddetto(a: AddettoVendite): void
+    + rimuoviAddetto(a: AddettoVendite): void
+    + modificaStipendio(a: AddettoVendite, s: Double): void
+}
+
+class AddettoVendite {
+    - nome: String
+    - cognome: String
+    - dataDiNascita: String
+    - stipendio: Double
+    + AddettoVendite(n: String, c: String, d: String, s: Double)
+    + getStipendio(): Double
+    + setStipendio(newStipendio: Double): void
+    + getNome(): String
+    + getCognome(): String
+    + getDataDiNascita(): String
+}
+
+enum Area <<Enum>> {
+    INFORMATICA,
+    TELEFONIA,
+    TELEVISORI,
+    ELETTRODOMESTICI
+}
+
+
+' definisco le relazioni
+Lavoratore <|.down. Manager
+Lavoratore <|.down. AddettoVendite
+Manager <|-down- CapoArea
+AddettoVendite <-right-o CapoArea
+CapoArea -right-> Area
+@enduml
