@@ -1,0 +1,86 @@
+@startuml negozio
+
+' START STYLE
+skinparam {
+	'monochrome true
+	'shadowing false
+	'classBackgroundColor white
+	'noteBackgroundColor white
+	classAttributeIconSize 0
+	'linetype polyline
+	'linetype ortho
+}
+hide circle
+' END STYLE
+
+title Dungeon
+
+interface Nemico << interface >>{
+	+ getNome(): String
+	+ applicaDanno(danno: Int): void
+	+ isSconfitto(): boolean
+}
+
+class Coboldo {
+    - vita: int
+}
+
+class Orco {
+    - vita: int
+}
+
+class Goblin {
+    - vita: int
+}
+
+class Troll {
+    - vita: int
+}
+
+abstract class Dungeon << abstract >>{
+    - livello: int
+    + esplora(): Nemico
+    # getNemico(tipo: TipoNemico): Nemico
+}
+
+class Landa{
+    # getNemico(tipo: TipoNemico): Nemico
+}
+
+class Bosco{
+    # getNemico(tipo: TipoNemico): Nemico
+}
+
+class Partita{
+    - dungeon: Dungeon
+    - attacchi: int
+    + Partita(dungeon: Dungeon, attacchi: int)
+    + gioca(): void
+    + lanciaDado(): int
+}
+
+enum TipoNemico <<Enum>> {
+    BASE,
+    ELITE,
+    BOSS
+}
+
+
+' definisco le relazioni
+Nemico <|.down. Coboldo
+Nemico <|.down. Goblin
+Nemico <|.down. Orco
+Nemico <|.down. Troll
+Nemico <-up- Partita
+Nemico <-up- Dungeon
+Dungeon <-left- Partita
+Dungeon <|-down- Landa
+Dungeon <|-down- Bosco
+Dungeon <-right- TipoNemico
+Coboldo <-up- Bosco
+Goblin <-up- Landa
+Goblin <-up- Bosco
+Troll <-up- Landa
+Troll <-up- Bosco
+Orco <-up- Landa
+@enduml
