@@ -1,6 +1,6 @@
 package org.javaClasses;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Set;
 
 public class EsempiMap {
@@ -33,7 +33,7 @@ public class EsempiMap {
 		// insieme delle chiavi
 		Set<String> chiavi = capitali.keySet();
 		// insieme dei valori
-		HashSet<String> valori = new HashSet<>(capitali.values());
+		ArrayList<String> valori = new ArrayList<>(capitali.values());
 		
 		System.out.println("Insieme delle chiavi: " + chiavi);
 		System.out.println("Insieme dei valori: " + valori + "\n");

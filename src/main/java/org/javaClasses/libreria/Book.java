@@ -6,7 +6,7 @@ public class Book {
 	private String nome;
 	private String ID;
 	private Double prezzo;
-	private Integer disponibilita;
+	private Integer disponibilità;
 	private String genere;
 	private String autore;
 	
@@ -14,15 +14,15 @@ public class Book {
 		this.nome = nome;
 		this.prezzo = prezzo;
 		this.genere = genere;
-		disponibilita = 1;
+		disponibilità = 1;
 		ID = generateID();
 	}
 	
-	public Book(String nome, Double prezzo, String genere, Integer disponibilita, String autore){
+	public Book(String nome, Double prezzo, String genere, Integer disponibilità, String autore){
 		this.nome = nome;
 		this.prezzo = prezzo;
 		this.genere = genere;
-		this.disponibilita = disponibilita;
+		this.disponibilità = disponibilità;
 		this.autore = autore;
 		ID = generateID();
 	}
@@ -54,7 +54,7 @@ public class Book {
 	
 	public void setPrezzo(Double nuovoPrezzo) {
 		if(nuovoPrezzo <= 0) {
-			System.out.println("Non si puo' inserire un prezzo minore o uguale a 0");
+			System.out.println("Non si può inserire un prezzo minore o uguale a 0");
 			return;
 		}
 		prezzo = nuovoPrezzo;
@@ -64,34 +64,34 @@ public class Book {
 		return genere;
 	}
 	
-	public void aggiungiDisponibilita(int disp) {
+	public void aggiungiDisponibilità(int disp) {
 		if(disp <= 0) {
-			System.out.println("Non si puo' aggiungere una disponibilita minore o uguale a 0");
+			System.out.println("Non si può aggiungere una disponibilità minore o uguale a 0");
 			return;
 		}
-		disponibilita += disp;
+		disponibilità += disp;
 	}
 	
-	public void sottraiDisponibilita(int disp) {
+	public void sottraiDisponibilità(int disp) {
 		if(disp <= 0) {
-			System.out.println("Non si puo' sottrarre una disponibilita minore o uguale a 0");
+			System.out.println("Non si può sottrarre una disponibilità minore o uguale a 0");
 			return;
 		}
-		else if(disponibilita < disp) {
-			System.out.println("Non c e' disponibilita del prodotto");
+		else if(disponibilità < disp) {
+			System.out.println("Non c è disponibilità del prodotto");
 			return;
 		}
 		
-		disponibilita -= disp;
+		disponibilità -= disp;
 	}
 	
-	public Integer getDisponibilita() {
-		return disponibilita;
+	public Integer getDisponibilità() {
+		return disponibilità;
 	}
 	
 	public void applicaSconto(Integer percentuale) {
 		if(percentuale <= 0 || percentuale >= 100) {
-			System.out.println("Non e' possibile effettuare lo sconto del " + percentuale + "%");
+			System.out.println("Non è possibile effettuare lo sconto del " + percentuale + "%");
 			return;
 		}
 	
@@ -103,7 +103,7 @@ public class Book {
 		System.out.println("Nome : " + nome);
 		System.out.println("ID : " + ID);
 		System.out.println("Prezzo : " + prezzo);
-		System.out.println("Disponibilita : " + disponibilita);
+		System.out.println("Disponibilità : " + disponibilità);
 		System.out.println("Genere : " + genere);
 		System.out.println("Autore : " + autore);
 	}

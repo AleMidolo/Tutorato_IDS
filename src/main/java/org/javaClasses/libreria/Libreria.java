@@ -1,6 +1,7 @@
 package org.javaClasses.libreria;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Libreria {
 
@@ -59,5 +60,11 @@ public class Libreria {
 			}
 		}
 		System.out.println("Lo scaffale " + genere + " non è presente nella libreria");
+	}
+	
+	public List<Book> getLibri() {
+		List<Book> libri = new ArrayList<>();
+		scaffali.forEach(scaffale -> libri.addAll(scaffale.getLibri()));
+		return libri;
 	}
 }

@@ -57,8 +57,8 @@ public class ListaLibri {
 		for(String nomeLibro : mappa.keySet()) {
 			ArrayList<String> valori = mappa.get(nomeLibro);
 			Double prezzo = Double.parseDouble(valori.get(1));
-			int disponibilita = Integer.parseInt(valori.get(2));
-			Book libro = new Book(nomeLibro, prezzo, valori.get(3), disponibilita, valori.get(4));
+			int disponibilità = Integer.parseInt(valori.get(2));
+			Book libro = new Book(nomeLibro, prezzo, valori.get(3), disponibilità, valori.get(4));
 			libreria.addLibro(libro);
 		}
 	}
@@ -80,13 +80,13 @@ public class ListaLibri {
 			FileWriter writer = new FileWriter(statistiche);
 			writer.write("Numero totale di libri: " + numeroDiLibri + "\n");
 			writer.write("Numero totale di scaffali: " + numeroScaffali + "\n");
-			writer.write("Libri con disponibilita minore di 2: \n");
+			writer.write("Libri con disponibilità minore di 2: \n");
 			for(Book b : libriPocaDisp) {
 				writer.write("\t" + b.getNome() + "\n");
 			}
 			writer.write("\n\nRicavi per libro: \n");
 			for(Book b : totaleLibri) {
-				writer.write("\tLibro: " + b.getNome() + " Ricavo: " + b.getDisponibilita()*b.getPrezzo() + "\n");
+				writer.write("\tLibro: " + b.getNome() + " Ricavo: " + b.getDisponibilità()*b.getPrezzo() + "\n");
 			}
 			writer.write("\n\n");
 			for(Scaffale s : libreria.getScaffali()) {
@@ -107,7 +107,7 @@ public class ListaLibri {
 		for(Scaffale s : libreria.getScaffali()) {
 			numeroDiLibri += s.getLibri().size();
 			for(Book b : s.getLibri()) {
-				if(b.getDisponibilita() < 2)
+				if(b.getDisponibilità() < 2)
 					libriPocaDisp.add(b);
 				totaleLibri.add(b);
 			}

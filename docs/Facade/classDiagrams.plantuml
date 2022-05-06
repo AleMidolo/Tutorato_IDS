@@ -1,0 +1,76 @@
+' PlantUML: tool per la generazione di UML (.png) in modo testuale
+' supporta diversi diagrammi UML 
+' (es. diagramma delle classi, di sequenza...)
+' esempio file class_diagram.puml per generare UML a destra
+' download (jar): http://plantuml.com/download
+' documentazione: http://plantuml.com/class-diagram
+' estensione per VS Code (PlantUML): https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
+' (premi ALT-D per aprire la preview in VS Code)
+
+@startuml Facade
+
+' START STYLE
+skinparam {
+	'monochrome true
+	'shadowing false
+	'classBackgroundColor white
+	'noteBackgroundColor white
+	classAttributeIconSize 0
+	'linetype polyline
+	'linetype ortho
+}
+hide circle
+' END STYLE
+
+title Facade
+
+class Client{
+    + main(args: String[]): void
+}
+
+class Giocatore{
+    - DEFAULT_EQUIP: String = "pistola"
+    - id: int
+    - equip: String
+    + Giocatore(id: int)
+    + getId(): int
+    + getEquip(): String
+    + setEquip(e: String): String
+}
+
+class BattleRoyale{
+    - ac: AntiCheat
+    - s: Server
+    - auth: Autenticator
+    + registra(g: Giocatore): void
+    + partecipa(g: Giocatore): void
+    + stato(): void
+}
+
+class Server{
+    - capienza: int
+    - listaGiocatori: List<Giocatore>
+    + Server(capienza: int)
+    + isPieno(): boolean
+    + addGiocatore(g: Giocatore): boolean
+    + toString(): String
+}
+
+class Authenticator{
+    - idGiocatori: List<Integer>
+    + isRegistrato(g: Giocatore): boolean
+    + registraGiocatore(g: Giocatore): boolean
+}
+
+class AntiCheat{
+    - blackList: List<String>
+    + isCheater(g: Giocatore): boolean
+}
+
+' definisco le relazioni
+Client -up-> Giocatore
+Client -right-> BattleRoyale
+BattleRoyale -up-> Authenticator
+BattleRoyale -right-> Server
+BattleRoyale -down-> AntiCheat
+@enduml

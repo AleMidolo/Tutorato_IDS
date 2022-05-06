@@ -9,6 +9,7 @@ public class EsempiReduce {
 		
 		List<Integer> valori = List.of(2, 3, 13, 11, 2, 5, 8, 12);
 		
+		
 		Integer conto = valori.stream().
 				reduce(0, (x, y) -> x+y);
 		System.out.println("Somma dei valori con reduce: " + conto);

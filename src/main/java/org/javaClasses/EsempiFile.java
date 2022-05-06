@@ -30,7 +30,9 @@ public class EsempiFile {
 		try {
 			// creazione di un writer che permette di scrivere all'interno di un file
 			FileWriter writer = new FileWriter(nomeFile);
-			writer.write("Prova di scrittura su file");
+			writer.write("Prova di scrittura su file\n");
+			writer.write("Prova di scrittura su file 2\n");
+			writer.write("Prova di scrittura su file 3");
 			writer.close();
 			
 			// creazione di un reader che permetter di leggere all'interno di un file
@@ -45,7 +47,7 @@ public class EsempiFile {
 			System.out.println("\n");
 			
 			// rimozione del file se presente
-			esempio.delete();
+			//esempio.delete();
 		} catch (IOException e) {
 			System.out.println("Errore nella scrittra del file " + nomeFile);
 			e.printStackTrace();
@@ -72,13 +74,18 @@ public class EsempiFile {
 				String riga = reader.readLine(); // legge una linea dal file
 				if (riga == null)
 					break; // controlla se il file e' finito
+				String[] valori = riga.split(";");
 				System.out.println(riga);
+				for(String s : valori) {
+					System.out.println(s);
+				}
+				System.out.println("\n");
 			}
 			reader.close();
 			System.out.println("\n");
 		}
 		catch(IOException e) {
-			e.printStackTrace();	
+			e.printStackTrace();
 		}
 	}
 }

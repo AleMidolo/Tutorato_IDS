@@ -15,7 +15,7 @@ public class EsempiString {
 		
 		// Esempi di come inizializzare una stringa
 		String esempio = "test";
-		String alfabeto1 = new String(data);
+		String alfabeto1 = new String(data); // "abc"
 		
 		// metodo length() per ottenere il numero di caratteri presenti all'interno della stringa
 		// Attenzionare il backslash "\" inserito sotto, serve a fare l'escape del carattere "
@@ -42,8 +42,9 @@ public class EsempiString {
 		System.out.println(alfabeto + "\n");
 		
 		// estrarre una sottostringa
+		System.out.println(alfabeto);
 		System.out.println("Estraggo dalla variabile alfabeto: " + alfabeto.substring(2));
-		System.out.println("Estraggo dall'inizio della variabile: " + alfabeto.substring(0, 2) + "\n");
+		System.out.println("Estraggo dall'inizio della variabile: " + alfabeto.substring(2, 5) + "\n");
 		
 		// modificare da maiuscolo a minuscolo e viceversa
 		System.out.println("Variabile alfabeto in maiuscolo: " + alfabeto.toUpperCase());

@@ -1,0 +1,66 @@
+' PlantUML: tool per la generazione di UML (.png) in modo testuale
+' supporta diversi diagrammi UML 
+' (es. diagramma delle classi, di sequenza...)
+' esempio file class_diagram.puml per generare UML a destra
+' download (jar): http://plantuml.com/download
+' documentazione: http://plantuml.com/class-diagram
+' estensione per VS Code (PlantUML): https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
+' (premi ALT-D per aprire la preview in VS Code)
+
+@startuml negozio
+
+' START STYLE
+skinparam {
+	'monochrome true
+	'shadowing false
+	'classBackgroundColor white
+	'noteBackgroundColor white
+	classAttributeIconSize 0
+	'linetype polyline
+	'linetype ortho
+}
+hide circle
+' END STYLE
+
+title Adapter
+
+interface InterfacciaClienti << interface >>{
+	+ aggiungiCliente(nome: String, cognome: String): boolean
+    + getNomeCliente(cognome: String): String
+    + rimuoviCliente(nome: String, cognome: String): boolean
+    + getNumeroClienti(): int
+}
+
+class AdapterClienti{
+    - gestore: GestoreClienti
+    + AdapterClienti()
+	+ aggiungiCliente(nome: String, cognome: String): boolean
+    + getNomeCliente(cognome: String): String
+    + rimuoviCliente(nome: String, cognome: String): boolean
+    + getNumeroClienti(): int
+    + alreadyExist(nome: String, cognome: String, clienti: HashMap<String, String>): boolean
+}
+
+class GestoreClienti{
+    - clienti: HashMap<String, String>
+    + GestoreClienti()
+    + addClient(m: String, n: String): void
+    + getClient(m: String): String
+    + getAllClients(): HashMap<String, String>
+    + remove(m: String, n: String): void
+    + count(): int
+}
+
+class TestAdapter{
+    + main(): void
+    + testAggiungiCliente(): void
+	+ testGetNomeCliente(): void
+	+ testRimuoviCliente(): void
+	+ testGetNumeroClienti(): void
+}
+
+' definisco le relazioni
+InterfacciaClienti <|.down. AdapterClienti
+AdapterClienti -right-> GestoreClienti
+TestAdapter -right-> InterfacciaClienti
+@enduml

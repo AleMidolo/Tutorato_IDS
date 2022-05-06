@@ -33,7 +33,7 @@ public class MainOpr {
 		
 		
 		// e' possibile eseguire questa istruzione SOLO perché l'interfaccia Operazione ha un singolo metodo
-		//Calcola sommaFunzionale = new Calcola((a,b) -> System.out.println("Somma \"funzionale\" di " + a + " e " + b + ": " + (a+b)));
+		// Calcola sommaFunzionale = new Calcola((a,b) -> System.out.println("Somma \"funzionale\" di " + a + " e " + b + ": " + (a+b)));
 		//sommaFunzionale.calcola(5, 9);
 	}
 }
