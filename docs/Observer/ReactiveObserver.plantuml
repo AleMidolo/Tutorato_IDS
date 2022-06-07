@@ -1,0 +1,61 @@
+' PlantUML: tool per la generazione di UML (.png) in modo testuale
+' supporta diversi diagrammi UML 
+' (es. diagramma delle classi, di sequenza...)
+' esempio file class_diagram.puml per generare UML a destra
+' download (jar): http://plantuml.com/download
+' documentazione: http://plantuml.com/class-diagram
+' estensione per VS Code (PlantUML): https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
+' (premi ALT-D per aprire la preview in VS Code)
+
+@startuml ReactiveObserver
+
+' START STYLE
+skinparam {
+	'monochrome true
+	'shadowing false
+	'classBackgroundColor white
+	'noteBackgroundColor white
+	classAttributeIconSize 0
+	'linetype polyline
+	'linetype ortho
+}
+hide circle
+' END STYLE
+
+title ReactiveObserver
+
+interface Publisher
+hide Publisher members
+
+class SubmissionPublisher<ComandoVocale> implements Publisher
+hide SubmissionPublisher members
+
+class AssistenteVocale {
+	- storicoComandi: ComandoVocale[0..*]
+	+ attach(s: Subscriber<ComandoVocale>)
+	+ registra(c: ComandoVocale)
+}
+
+AssistenteVocale "publ" -up-> SubmissionPublisher
+Publisher -right-> Subscriber
+
+interface Subscriber<ComandoVocale> {
+	+ onSubscribe(s: Subscription)
+	+ onNext(c: ComandoVocale)
+	+ onError(t: Throwable)
+	+ onComplete()
+}
+
+class SmartLight implements Subscriber {
+	- sub: Subscription
+	+ onSubscribe(s: Subscription)
+	+ onNext(c: ComandoVocale)
+	+ onError(t: Throwable)
+	+ onComplete()
+	- elaboraComando(c: ComandoVocale)
+	- accendi()
+	- spegni()
+}
+AssistenteVocale -[hidden]right-> SmartLight
+
+@enduml
