@@ -1,0 +1,96 @@
+' PlantUML: tool per la generazione di UML (.png) in modo testuale
+' supporta diversi diagrammi UML 
+' (es. diagramma delle classi, di sequenza...)
+' esempio file class_diagram.puml per generare UML a destra
+' download (jar): http://plantuml.com/download
+' documentazione: http://plantuml.com/class-diagram
+' estensione per VS Code (PlantUML): https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
+' (premi ALT-D per aprire la preview in VS Code)
+
+@startuml Mediator
+
+' START STYLE
+skinparam {
+	'monochrome true
+	'shadowing false
+	'classBackgroundColor white
+	'noteBackgroundColor white
+	classAttributeIconSize 0
+	'linetype polyline
+	'linetype ortho
+}
+hide circle
+' END STYLE
+
+title Mediator
+
+interface IMediator << interface >>{
+    + setSmartTV(tv: Device): void
+    + setGameStation(gs: Device): void
+    + setCronCast(cc: Device): void
+    + smartTvTurnedOn(): void
+    + smartTvTurnedOff(): void
+    + gameStationTurnedOn(): void
+    + gameStationTurnedOff(): void
+    + croneCastTurnedOn(): void
+    + croneCastTurnedOff(): void
+}
+
+interface Device << interface >> {
+    + turnOn(): void
+    + turnOff(): void
+    + isOn(): boolean
+}
+
+class CronCast {
+    - m: Mediator
+    - isOn: boolean
+    + CronCast(m: Mediator)
+    + turnOn(): void
+    + turnOff(): void
+    + isOn(): boolean
+}
+
+class SmartTv {
+    - m: Mediator
+    - isOn: boolean
+    + SmartTv(m: Mediator)
+    + turnOn(): void
+    + turnOff(): void
+    + isOn(): boolean
+}
+
+class GameStation {
+    - m: Mediator
+    - isOn: boolean
+    + GameStation(m: Mediator)
+    + turnOn(): void
+    + turnOff(): void
+    + isOn(): boolean
+}
+
+class Mediator {
+    - tv: Device
+    - gs: Device
+    - cc: Device
+    + setSmartTV(tv: Device): void
+    + setGameStation(gs: Device): void
+    + setCronCast(cc: Device): void
+    + smartTvTurnedOn(): void
+    + smartTvTurnedOff(): void
+    + gameStationTurnedOn(): void
+    + gameStationTurnedOff(): void
+    + croneCastTurnedOn(): void
+    + croneCastTurnedOff(): void
+}
+
+' definisco le relazioni
+Mediator .up.|> IMediator
+Device -right-> IMediator
+Device <|.down. SmartTv
+Device <|.down. CronCast
+Device <|.down. GameStation
+Mediator -left-> SmartTv
+Mediator -left-> CronCast
+Mediator -left-> GameStation
+@enduml

@@ -1,0 +1,73 @@
+' PlantUML: tool per la generazione di UML (.png) in modo testuale
+' supporta diversi diagrammi UML 
+' (es. diagramma delle classi, di sequenza...)
+' esempio file class_diagram.puml per generare UML a destra
+' download (jar): http://plantuml.com/download
+' documentazione: http://plantuml.com/class-diagram
+' estensione per VS Code (PlantUML): https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
+' (premi ALT-D per aprire la preview in VS Code)
+
+@startuml Decorator
+
+' START STYLE
+skinparam {
+	'monochrome true
+	'shadowing false
+	'classBackgroundColor white
+	'noteBackgroundColor white
+	classAttributeIconSize 0
+	'linetype polyline
+	'linetype ortho
+}
+hide circle
+' END STYLE
+
+title Decorator
+
+interface Spada << interface >>{
+    + getNome(): String
+    + getDanno(): int
+    + getEffetti(): List<String>
+}
+
+class Incantesimo {
+    - component: Spada
+    + Incantesimo(s: Spada)
+    + getNome(): String
+    + getDanno(): int
+    + getEffetti(): List<String>
+}
+
+class Infuocata {
+    + Infuocata(s: Spada)
+    + getNome(): String
+    + getDanno(): int
+    + getEffetti(): List<String>
+}
+
+class SpadaBase {
+    + getNome(): String
+    + getDanno(): int
+    + getEffetti(): List<String>
+}
+
+class Spettrale {
+    + Spettrale(s: Spada)
+    + getNome(): String
+    + getEffetti(): List<String>
+}
+
+class Pesante {
+    + Pesante(s: Spada)
+    + getNome(): String
+    + getDanno(): int
+}
+
+' definisco le relazioni
+Spada <|.right. SpadaBase
+Incantesimo .up.|> Spada
+Incantesimo -up-> Spada
+Spettrale -up-|> Incantesimo
+Pesante -up-|> Incantesimo
+Infuocata -up-|> Incantesimo 
+@enduml
